@@ -15,6 +15,26 @@
       <button type="submit" class="btn">Entrar</button>
     </form>
   </main>
+  <script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const campos = this.querySelectorAll("input[required], textarea[required]");
+    let valido = true;
+
+    campos.forEach((campo) => {
+      if (!campo.value.trim()) {
+        campo.style.border = "2px solid red";
+        valido = false;
+      } else {
+        campo.style.border = "1px solid #ccc";
+      }
+    });
+
+    if (!valido) {
+      e.preventDefault();
+      alert("Por favor, completá todos los campos obligatorios.");
+    }
+  });
+</script>
 </body>
 </html>
 
