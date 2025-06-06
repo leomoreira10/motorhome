@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alquiler de Motorhomes Corrientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Alquiler de Motorhomes Corrientes</h1>
+    <p>¡Tu aventura comienza aquí! Motorhomes entregados donde estés, solo en Argentina.</p>
+  </header>
+
+  <nav>
+    <a href="#como-funciona">¿Cómo funciona?</a>
+    <a href="#flota">Nuestra Flota</a>
+    <a href="#mapa">Mapa de Acampe</a>
+    <a href="#faq">Preguntas Frecuentes</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="como-funciona">
+    <h2>¿Cómo funciona?</h2>
+    <ol>
+      <li>Elegí el motorhome que mejor se adapte a tu viaje.</li>
+      <li>Reservá online o por WhatsApp.</li>
+      <li>Lo llevamos hasta tu ubicación en Argentina.</li>
+      <li>¡Disfrutá tu experiencia y devolvés el motorhome donde prefieras!</li>
+    </ol>
+  </section>
+
+  <section id="flota">
+    <h2>Nuestra Flota</h2>
+    <div class="flota-lista">
+      <div class="motorhome">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Motorhome Clásico">
+        <h3>Motorhome Clásico</h3>
+        <ul>
+          <li>2-4 personas</li>
+          <li>Cocina equipada</li>
+          <li>Aire acondicionado</li>
+        </ul>
+      </div>
+      <div class="motorhome">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Motorhome Premium">
+        <h3>Motorhome Premium</h3>
+        <ul>
+          <li>4-6 personas</li>
+          <li>Baño completo</li>
+          <li>WiFi y TV Satelital</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="mapa">
+    <h2>Mapa: Dónde acampar y estacionar</h2>
+    <div id="map"></div>
+    <div class="leyenda">
+      <span><span class="icon icon-acampe"></span> Acampe permitido</span>
+      <span><span class="icon icon-estacionar"></span> Estacionar permitido</span>
+      <span><span class="icon icon-prohibido"></span> Prohibido motorhome</span>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <details>
+      <summary>¿Entregan en todo el país?</summary>
+      <p>Sí, llevamos el motorhome hasta tu ubicación en cualquier punto de Argentina.</p>
+    </details>
+    <details>
+      <summary>¿Qué incluye el alquiler?</summary>
+      <p>Motorhome equipado, seguro, asistencia, y traslados de entrega/retiro.</p>
+    </details>
+    <details>
+      <summary>¿Dónde puedo acampar?</summary>
+      <p>Consultá el mapa para ver los lugares recomendados y las zonas prohibidas.</p>
+    </details>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto y Reservas</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p>O escribinos por WhatsApp: <a href="https://wa.me/5493794112233" target="_blank">+54 9 379 411-2233</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Motorhomes Corrientes. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Google Maps API -->
+  <!-- Reemplaza TU_API_KEY por tu clave en la línea de abajo -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+  <script src="mapa.js"></script>
+</body>
+</html>
