@@ -1,60 +1,40 @@
-// Inicializa el mapa centrado en Corrientes, Argentina
-const map = L.map('map').setView([-27.4697, -58.8306], 6);
+<!-- mapa.js -->
+const map = L.map('map').setView([-34.6, -58.4], 5);
 
-// Agrega tiles de OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'Datos &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Datos de ejemplo: puedes editar, agregar o cargar de un archivo externo
 const lugares = [
   {
-    nombre: "Camping Río Paraná",
-    tipo: "acampe",
-    lat: -27.4806,
-    lng: -58.8341,
-    info: "Camping con servicios completos junto al río en Corrientes."
+    nombre: "Camping El Refugio",
+    coordenadas: [-27.4698, -58.8341],
+    tipo: "permitido",
+    descripcion: "Camping habilitado en Corrientes con servicios completos."
   },
   {
-    nombre: "Estacionamiento Costanera",
-    tipo: "estacionar",
-    lat: -27.4715,
-    lng: -58.8372,
-    info: "Estacionamiento habilitado para motorhomes."
+    nombre: "Estacionamiento Costanera Bs As",
+    coordenadas: [-34.6037, -58.3816],
+    tipo: "restringido",
+    descripcion: "Zona urbana donde no se permite pernoctar en motorhome."
   },
   {
-    nombre: "Plaza 25 de Mayo",
-    tipo: "prohibido",
-    lat: -27.4697,
-    lng: -58.8306,
-    info: "Prohibido estacionar/acampan motorhomes aquí."
-  },
-  {
-    nombre: "Camping El Refugio (Misiones)",
-    tipo: "acampe",
-    lat: -27.3712,
-    lng: -55.8962,
-    info: "Camping familiar en Misiones."
-  },
-  {
-    nombre: "Estacionamiento Ruta 12 (Chaco)",
-    tipo: "estacionar",
-    lat: -27.4461,
-    lng: -59.0266,
-    info: "Parada segura sobre Ruta 12."
+    nombre: "Parque Nacional Los Glaciares",
+    coordenadas: [-50.3379, -72.2648],
+    tipo: "interes",
+    descripcion: "Lugar turístico espectacular con áreas designadas para motorhomes."
   }
 ];
 
-// Íconos personalizados
-const iconos = {
-  acampe: L.divIcon({className: "icon icon-acampe"}),
-  estacionar: L.divIcon({className: "icon icon-estacionar"}),
-  prohibido: L.divIcon({className: "icon icon-prohibido"})
-};
-
-// Añade marcadores al mapa
 lugares.forEach(lugar => {
-  L.marker([lugar.lat, lugar.lng], { icon: iconos[lugar.tipo] })
+  const color = lugar.tipo === "permitido" ? 'green' : lugar.tipo === "restringido" ? 'red' : 'blue';
+
+  L.circleMarker(lugar.coordenadas, {
+    radius: 8,
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.6
+  })
     .addTo(map)
-    .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
+    .bindPopup(`<strong>${lugar.nombre}</strong><br>${lugar.descripcion}`);
 });
